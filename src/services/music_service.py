@@ -80,12 +80,14 @@ class MusicService:
             loops_needed = int(target_duration / current_duration) + 1
             audio = audio * loops_needed
         
-        # Trim to exact duration
-        audio = audio[:target_duration * 1000]
+        # Trim to exact duration (with small buffer to avoid edge cases)
+        target_ms = int(target_duration * 1000)
+        audio = audio[:target_ms]
         
         # Apply fade in/out
-        fade_duration = config.music_fade_duration * 1000
-        audio = audio.fade_in(fade_duration).fade_out(fade_duration)
+        fade_duration = min(config.music_fade_duration * 1000, target_ms // 4)
+        if len(audio) > fade_duration * 2:
+            audio = audio.fade_in(fade_duration).fade_out(fade_duration)
         
         # Adjust volume
         audio = audio - (20 * (1 - config.music_volume))  # Convert to dB

@@ -10,6 +10,7 @@ from src.services.music_service import MusicService
 from src.services.video_service import VideoService
 from src.utils.data_loader import DataLoader
 from src.utils.youtube_metadata import YouTubeMetadata
+from src.utils.thumbnail_generator import generate_thumbnail_from_video_path
 
 
 def create_video(input_file: str, output_name: str = None, 
@@ -85,9 +86,15 @@ def create_video(input_file: str, output_name: str = None,
         f.write(f"Tags:\n{', '.join(metadata['tags'])}\n")
     
     print(f"✅ Metadata saved: {metadata_path}")
+    
+    # Generate thumbnail
+    print(f"🖼️ Generating thumbnail...")
+    thumbnail_path = generate_thumbnail_from_video_path(video_path, sentences)
+    
     print(f"\n🎉 Video creation complete!")
     print(f"📹 Video: {video_path}")
     print(f"📄 Metadata: {metadata_path}")
+    print(f"🖼️ Thumbnail: {thumbnail_path}")
     
     return video_path, metadata
 
@@ -153,7 +160,10 @@ def main():
             args.music
         )
     except Exception as e:
+        import traceback
         print(f"❌ Error: {str(e)}")
+        print("\nFull traceback:")
+        traceback.print_exc()
         sys.exit(1)
 
 

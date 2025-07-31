@@ -6,42 +6,42 @@ import random
 class YouTubeMetadata:
     def __init__(self):
         self.title_templates = [
-            "Daily English Study #{day} - Learn {count} Essential Phrases",
-            "영어 공부 Day {day} - {count} Essential English Sentences",
-            "Learn English & Korean Together - Day {day} ({date})",
-            "Daily English Practice #{day} | {count} Useful Sentences",
-            "{date} English Study - Master {count} Daily Phrases"
+            "매일 영어 공부 #{day} - 필수 표현 {count}개 배우기",
+            "영어 공부 Day {day} - {count}개의 필수 영어 문장",
+            "영어와 한국어 함께 배우기 - Day {day} ({date})",
+            "매일 영어 연습 #{day} | 유용한 문장 {count}개",
+            "{date} 영어 공부 - 일상 표현 {count}개 마스터하기"
         ]
         
-        self.description_template = """🌟 Daily English Study - Day {day} 🌟
+        self.description_template = """🌟 매일 영어 공부 - Day {day} 🌟
 
-📚 Today's Lesson:
-Learn {count} essential English sentences with Korean translations. Perfect for daily practice!
+📚 오늘의 수업:
+한국어 번역과 함께 필수 영어 문장 {count}개를 배워보세요. 매일 연습하기에 완벽합니다!
 
-🎯 What You'll Learn:
+🎯 학습 내용:
 {sentence_list}
 
-⏰ Study Schedule:
-- Each sentence is displayed for easy learning
-- English pronunciation followed by Korean translation
-- Perfect for beginners and intermediate learners
+⏰ 학습 일정:
+- 각 문장은 쉽게 학습할 수 있도록 표시됩니다
+- 영어 발음 후 한국어 번역이 이어집니다
+- 초급자와 중급자에게 완벽합니다
 
-📱 Study Tips:
-1. Listen carefully to the pronunciation
-2. Repeat after each sentence
-3. Try to use these phrases in daily conversation
-4. Review previous lessons regularly
+📱 학습 팁:
+1. 발음을 주의 깊게 들어보세요
+2. 각 문장을 따라 말해보세요
+3. 일상 대화에서 이 표현들을 사용해보세요
+4. 이전 수업을 정기적으로 복습하세요
 
-🔔 Subscribe for Daily English Lessons!
-New videos uploaded every day at {upload_time}
+🔔 매일 영어 수업을 구독하세요!
+매일 {upload_time}에 새로운 동영상이 업로드됩니다
 
-📋 Full Sentence List:
+📋 전체 문장 목록:
 {full_list}
 
-#EnglishStudy #영어공부 #DailyEnglish #LearnEnglish #한국어 #English #Korean #LanguageLearning #영어회화 #EnglishPractice #StudyWithMe #LanguageExchange #영어문장 #DailyPractice #EnglishSpeaking
+#영어공부 #매일영어 #영어회화 #영어문장 #기초영어 #EnglishStudy #DailyEnglish #LearnEnglish #한국어 #English #Korean #LanguageLearning #EnglishPractice #StudyWithMe #LanguageExchange #DailyPractice #EnglishSpeaking
 
-🎵 Background Music: {music_credit}
-📸 Images: {image_credit}
+🎵 배경 음악: {music_credit}
+📸 이미지: {image_credit}
 """
         
         self.tags = [
@@ -86,7 +86,7 @@ New videos uploaded every day at {upload_time}
             day_number = (datetime.now() - datetime(2024, 1, 1)).days
         
         date_str = datetime.now().strftime("%Y-%m-%d")
-        upload_time = "8:00 AM KST"
+        upload_time = "오전 8:00 (한국시간)"
         
         # Generate title
         title = random.choice(self.title_templates).format(
@@ -111,15 +111,16 @@ New videos uploaded every day at {upload_time}
         
         # Music and image credits
         music_credits = {
-            "calm": "Relaxing Background Music (Royalty Free)",
-            "upbeat": "Upbeat Study Music (Royalty Free)",
-            "inspiring": "Motivational Background Music (Royalty Free)"
+            "calm": "편안한 배경 음악 (저작권 프리)",
+            "upbeat": "경쾌한 학습 음악 (저작권 프리)",
+            "inspiring": "동기부여 배경 음악 (저작권 프리)"
         }
         
         image_credits = {
-            "nature": "Beautiful Nature Photography from Unsplash",
-            "study": "Study & Education Images from Unsplash",
-            "city": "Urban Photography from Unsplash"
+            "nature": "Unsplash의 아름다운 자연 사진",
+            "study": "Unsplash의 학습 및 교육 이미지",
+            "city": "Unsplash의 도시 사진",
+            "abstract": "Unsplash의 추상 이미지"
         }
         
         # Generate description
@@ -129,8 +130,8 @@ New videos uploaded every day at {upload_time}
             sentence_list=sentence_list,
             upload_time=upload_time,
             full_list=full_list,
-            music_credit=music_credits.get(music_style, "Background Music"),
-            image_credit=image_credits.get(image_theme, "Stock Images")
+            music_credit=music_credits.get(music_style, "배경 음악"),
+            image_credit=image_credits.get(image_theme, "스톡 이미지")
         )
         
         # Select tags (use most relevant ones)
@@ -144,7 +145,7 @@ New videos uploaded every day at {upload_time}
             "category_id": self.categories["Education"],
             "privacy_status": "public",
             "thumbnail_time": "00:00:05",  # 5 seconds into video
-            "playlist": "Daily English Study Series",
+            "playlist": "매일 영어 공부 시리즈",
             "language": "en",
             "license": "youtube",
             "embeddable": True,
@@ -154,7 +155,7 @@ New videos uploaded every day at {upload_time}
             "location": {
                 "latitude": 37.5665,
                 "longitude": 126.9780,
-                "location_description": "Seoul, South Korea"
+                "location_description": "서울, 대한민국"
             }
         }
         
@@ -164,7 +165,7 @@ New videos uploaded every day at {upload_time}
         """Generate text overlay for video thumbnail."""
         return {
             "main_text": f"Day {day_number}",
-            "subtitle": f"{sentence_count} English Sentences",
-            "badge_text": "DAILY STUDY",
-            "corner_text": "EN/KO"
+            "subtitle": f"영어 문장 {sentence_count}개",
+            "badge_text": "매일 학습",
+            "corner_text": "영어/한글"
         }
