@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+.venv
+
+# Environment variables
+.env
+.env.local
+
+# Output files
+output/
+*.mp4
+*.mp3
+*.wav
+*.jpg
+*.png
+
+# Data files
+data/daily_sentences/processed/
+
+# Logs
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+temp-audio.m4a
+*.tmp
+
+# API credentials
+credentials.json
+token.json
+
+# Test files
+test_*
+*.test.*

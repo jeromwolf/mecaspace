@@ -1,0 +1,30 @@
+# TTS (Text-to-Speech)
+gtts>=2.3.0
+azure-cognitiveservices-speech>=1.31.0
+
+# Video Processing
+moviepy>=1.0.3
+Pillow>=10.0.0
+numpy>=1.24.0
+
+# Audio Processing
+pydub>=0.25.1
+
+# Image Collection
+requests>=2.28.0
+# Removed python-unsplash due to conflicts, will use requests directly
+
+# Utilities
+python-dotenv>=1.0.0
+pandas>=2.0.0
+schedule>=1.2.0
+
+# YouTube API
+google-api-python-client>=2.95.0
+google-auth-httplib2>=0.1.0
+google-auth-oauthlib>=1.0.0
+
+# Development
+pytest>=7.4.0
+black>=23.7.0
+flake8>=6.0.0
