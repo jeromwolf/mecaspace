@@ -15,6 +15,7 @@
 - 🎨 **모던 YouTube 스타일**: 2025년 트렌드를 반영한 미니멀하고 세련된 디자인
 - 📝 **YouTube 메타데이터**: 제목, 설명, 태그 자동 생성
 - ⏰ **스케줄 자동화**: 매일 정해진 시간에 동영상 생성
+- 📅 **주간 콘텐츠 자동화**: 요일별 테마에 맞춘 자동 콘텐츠 생성 시스템
 
 ## 🚀 빠른 시작
 
@@ -106,6 +107,30 @@ python -m src.utils.modern_assets
 python -m src.utils.thumbnail_generator
 ```
 
+### 주간 콘텐츠 자동 생성
+
+```bash
+# 주간 콘텐츠 계획 미리보기
+python weekly_content_generator.py --preview
+
+# 특정 주차 콘텐츠 생성
+python weekly_content_generator.py --week 1
+
+# 한 달치 콘텐츠 계획 생성
+python weekly_content_generator.py --month
+
+# 생성된 주간 콘텐츠로 비디오 생성
+cd data/week_1_20250731
+./generate_week.sh
+```
+
+**요일별 테마:**
+- 월요일: ☕ 카페영어 (스타벅스 주문, 카페 이용)
+- 화요일: 🛍️ 쇼핑영어 (사이즈 묻기, 가격 흥정)
+- 수요일: 💼 비즈니스영어 (이메일, 회의)
+- 목요일: ✈️ 여행영어 (공항, 호텔)
+- 금요일: 🌟 일상영어 (날씨, 인사)
+
 ## ⚙️ 환경 설정
 
 ### API 키 설정 (선택사항)
@@ -165,6 +190,7 @@ mecaspace/
 ├── 📂 assets/            # 생성된 에셋 파일
 ├── 📄 main.py            # 메인 실행 파일
 ├── 📄 scheduler.py       # 스케줄러
+├── 📄 weekly_content_generator.py  # 주간 콘텐츠 생성기
 └── 📄 requirements.txt   # 의존성 목록
 ```
 
@@ -230,6 +256,13 @@ MIT License - 자세한 내용은 [LICENSE](LICENSE) 파일을 참고하세요.
 - **Jerome Wolf** - [GitHub](https://github.com/jeromwolf)
 
 ## 📦 버전 기록
+
+### v2.1.0 (2025-07-31)
+- 📅 주간 콘텐츠 자동 생성 시스템 추가
+- 🎯 요일별 맞춤 테마 콘텐츠 (카페, 쇼핑, 비즈니스, 여행, 일상)
+- 🔄 4주 로테이션 콘텐츠 계획
+- 📊 월간 콘텐츠 일괄 생성 기능
+- 🚀 배치 스크립트를 통한 주간 비디오 자동화
 
 ### v2.0.0 (2025-07-31)
 - ✨ 동적 인트로/아웃트로 기능 추가

@@ -23,6 +23,11 @@ python scheduler.py
 
 # Create schedule test data
 python scheduler.py --create-sample-data
+
+# Weekly content generation
+python weekly_content_generator.py --week 1  # Generate specific week
+python weekly_content_generator.py --month   # Generate full month plan
+cd data/week_1_20250731 && ./generate_week.sh  # Run batch generation
 ```
 
 ## Architecture
@@ -41,6 +46,7 @@ The project follows a service-oriented architecture:
 - **Main Components**:
   - `main.py`: CLI interface and orchestration
   - `scheduler.py`: Automated daily video generation
+  - `weekly_content_generator.py`: Weekly content automation with themed days
 
 ## Key Patterns
 
@@ -48,3 +54,11 @@ The project follows a service-oriented architecture:
 2. **Fallback Mechanisms**: API failures gracefully degrade (placeholder images, Google TTS fallback)
 3. **Configuration-Driven**: All settings via environment variables
 4. **Modular Design**: Services can be tested and modified independently
+5. **Content Automation**: Weekly themed content (Mon: Cafe, Tue: Shopping, Wed: Business, Thu: Travel, Fri: Daily)
+
+## Recent Updates (v2.1.0)
+
+- Dynamic intro/outro with time-based gradients and animations
+- Weekly content automation system with daily themes
+- Batch video generation scripts for efficient production
+- 4-week content rotation with diverse topics

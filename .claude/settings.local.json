@@ -16,7 +16,9 @@
       "Bash(rm:*)",
       "Bash(ffprobe:*)",
       "Bash(md5:*)",
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "Bash(chmod:*)",
+      "Bash(./generate_week.sh:*)"
     ],
     "deny": []
   }
